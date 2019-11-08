@@ -1,4 +1,5 @@
 from django.db import transaction
+
 from rest_framework import serializers
 from school.models import (Student,Professor,StudentProfessor)
 
@@ -16,9 +17,13 @@ class ProfessorSerializer(serializers.ModelSerializer):
         return professor
 
 class StudentSerializer(serializers.ModelSerializer):
+
+    professors= serializers.StringRelatedField(many=True)
+    
     class Meta:
         model = Student
         fields = ('id', 'first_name', 'middle_name', 'last_name','professors')
+
     @transaction.atomic
     def create(self, validated_data):
 

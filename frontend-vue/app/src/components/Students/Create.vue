@@ -32,6 +32,21 @@
                 <v-text-field v-model="student.last_name" label="Last Name*" hint="Student's last name" required></v-text-field>
               </v-col>
             </v-row>           
+            <v-row class="form-group" v-for="(input,k) in studentprofessors" :key="k">
+                
+              <v-col cols="7">
+                <v-select
+                  :items = "professors"
+                  item-value = "id"
+                  item-text = "first_name"
+                  label = "Professors"
+                  attach
+                  single-line
+                  v-model = "input.professor"
+                >
+                </v-select>
+              </v-col>
+            </v-row>
           </v-container>
           <small>*Obrigatory information</small>
         </v-card-text>
