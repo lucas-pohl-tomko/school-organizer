@@ -1,740 +1,24 @@
 <template>
-<!-- STUDENTS TABLE -->
-
-  <v-container class="grey lighten-5">
-    <v-row no-gutters>
-      <template>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            Ș̶̨̡̥̮̗͚͍̥̻̳̖̖͎̈́̃̚̚͝e̶̬̍̇m̴̧̨̝͇͚͖̭̝̦̗̯̞̜͂̿͊̄͋̑͛̇a̵̬͍͓͍̫͇̦̦̋̀͆ͅͅń̵̢̖̰̟̫̬̣̮͎̭͚̟́̅̿͒́͜͜a̶̧̖̳̼̯̙͖̠̭̤̞͈̒̏̀̋̊̂̂̓́̀̕ 
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            Segunda
-
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            Terca
-
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            Quarta
-
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            Quinta
-
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            Sexta
-
-          </v-card>
-        </v-col>
-        <v-col>
-          <v-card 
-            class="pa-2"
-            outlined
-            tile
-          >
-            Sabado
-          </v-card>
-        </v-col>
-
+  <v-card>
+    <v-card-title>
+      Horarios
+      <v-spacer></v-spacer>
+      <v-text-field
+        v-model="search"
+        append-icon="search"
+        label="Search"
+        single-line
+        hide-details
+      ></v-text-field>
+    </v-card-title>
+    <v-data-table 
       
-      </template>
-    </v-row>
-
-<!-- SCHEDULE TABLE (PLZ JESUS HAVE MERCY) -->
-
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            13:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            13:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            14:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            14:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-                
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            15:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            15:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            16:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            16:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            17:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            17:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            18:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            18:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            19:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            19:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            20:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            20:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            21:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            21:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            22:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            22:30
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-    <v-row no-gutters>
-        <v-col>
-          <v-card
-            class="pa-2"
-            outlined
-            tile
-          >
-            23:00
-          </v-card>
-        </v-col>
-
-      <template v-for="n in 6">
-          
-            <v-col :key="n">
-
-            <v-card
-                class="pa-2"
-                outlined
-                tile
-            >
-                pessoa
-            </v-card>
-            </v-col>
-
-            <v-responsive
-            v-if="n === 6"
-            :key="`width-${n}`"
-            width="100%"
-            ></v-responsive>
-      </template>
-    </v-row>
-  </v-container>
-
+      :headers="headers"
+      :items="schedule"
+      :search="search"
+    ></v-data-table>
+  </v-card>
 </template>
-
 
 
 
@@ -748,6 +32,214 @@ export default {
   data() {
     return {
       students: [],
+
+      search: '',
+        headers: [
+          {
+            text: 'h̵̨̢̡̧̫̳̩̝̜͖̞̼̦̳͖̭̹͉̼̞̺̩̣̝̻̥̘̤̥̜̓͌̒̃̒͋͌̽͋̒̈̄͐̿͗̋͋̈́̍̓̕͝͠o̶̬̯̥̓͒̽̋͒̈́͠ͅr̵̡̪͇̞̯̙̼̪̞̜̮̦͉̳̈̒́̄́̔̆̃̍̏̕͘͝͝ͅͅa̵̡̨̡̻͔̤̲̲͉͓̥̦̼͖̦̖̮̱͕̗̟̭͕͕̦̘̦̙̭͉̮̼͔̣̥̞̠̎͗̚ŗ̵͍̪̦͓͉̟̝̮̳̩̭̑̀̈́̂̍̀̽̕i̷̢̖̖̻̼͔̘̭͚̤͚̮̭͕͔̯̠̼̰͖̝̮̿́͒o̸̡̡̡͖̫̗̬̜͓͍̺̤̬̱͙̘̯̱͇̺͕͔̫̟͈͈̯̦͈͔͕̗̖̒̎̉̀́̇̾͘͘͜͜ͅş̸̧̡̛̰͉̦̤̪̪̘̭̘̗̠̖̫͖̘̰̘̣̙̱̭̯͖̳̗̼̜̳̠̈́̅̆͛̓̌̈́̏̔͑̃́̾̉̄̀̿͋̊̉̏͑͘͘̚͜͝͝͝͝ͅ',
+            align: 'left',
+            sortable: false,
+            value: 'name',
+          },
+          { text: 'Segunda', value: 'monday' },
+          { text: 'Terca', value: 'tuesday' },
+          { text: 'Quarta', value: 'wednesday' },
+          { text: 'Quinta', value: 'thursday' },
+          { text: 'Sexta', value: 'friday' },
+          { text: 'Sabado', value: 'saturday' },
+        ],
+        schedule: [
+          {
+            name: '13:00',
+            monday: "maria",
+            tuesday: 6.0,
+            wednesday: 24,
+            thursday: 4.0,
+            friday: '1%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '13:30',
+            monday: 237,
+            tuesday: 9.0,
+            wednesday: 37,
+            thursday: 4.3,
+            friday: '1%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '14:00',
+            monday: 262,
+            tuesday: 16.0,
+            wednesday: 23,
+            thursday: 6.0,
+            friday: '7%',
+            saturday: "aluno teste",            
+          },
+          {
+            name: '14:30',
+            monday: 305,
+            tuesday: 3.7,
+            wednesday: 67,
+            thursday: 4.3,
+            friday: '8%',
+            saturday: "aluno teste",
+},
+          {
+            name: '15:00',
+            monday: 356,
+            tuesday: 16.0,
+            wednesday: 49,
+            thursday: 3.9,
+            friday: '16%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '15:30',
+            monday: 375,
+            tuesday: 0.0,
+            wednesday: 94,
+            thursday: 0.0,
+            friday: '0%',
+            saturday: "aluno teste",         
+          },
+          {
+            name: '16:00',
+            monday: 392,
+            tuesday: 0.2,
+            wednesday: 98,
+            thursday: 0,
+            friday: '2%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '16:30',
+            monday: 408,
+            tuesday: 3.2,
+            wednesday: 87,
+            thursday: 6.5,
+            friday: '45%',
+            saturday: "aluno teste",          
+          },
+          {
+            name: '17:00',
+            monday: 452,
+            tuesday: 25.0,
+            wednesday: 51,
+            thursday: 4.9,
+            friday: '22%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '17:30',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '18:00',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '18:30',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '19:00',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '19:30',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '20:00',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '20:30',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '21:00',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '21:30',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '22:00',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '22:30',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+          {
+            name: '23:00',
+            monday: 518,
+            tuesday: 26.0,
+            wednesday: 65,
+            thursday: 7,
+            friday: '6%',
+            saturday: "aluno teste",
+          },
+        ],
+
     };
   },
   components: {
