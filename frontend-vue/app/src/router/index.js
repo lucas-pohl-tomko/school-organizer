@@ -9,6 +9,7 @@ import EditBook from'@/components/Books/Edit'
 import Experiments from '@/components/Experiments'
 import ListStudents from '@/components/Students/List'
 import EditStudents from'@/components/Students/Edit'
+import Test from'@/components/Students/Test'
 
 Vue.use(Router)
 
@@ -55,6 +56,11 @@ export default new Router({
       path: '/students/edit/:id',
       name: 'EditStudents',
       component: EditStudents
+    },
+    {
+      path: '/students/test',
+      name: 'Test',
+      component: Test
     }
   ]
 })
