@@ -36,7 +36,7 @@ class StudentProfessor(models.Model):
     role = models.IntegerField(choices=ROLE_PROFESSOR)
 
     def __str__(self):
-        return str((self.student, self.professor))
+        return str((self.student, self.professor, self.role))
 
     class Meta:
         db_table = ''
