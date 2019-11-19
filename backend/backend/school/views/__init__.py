@@ -7,3 +7,7 @@ from .professor import (
 
 )
 
+from .schedule import (
+    ScheduleList,ScheduleStudentProfessorList,TimeList,DayOfTheWeekList
+
+)

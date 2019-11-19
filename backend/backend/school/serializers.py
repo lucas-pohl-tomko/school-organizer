@@ -1,7 +1,7 @@
 from django.db import transaction
 
 from rest_framework import serializers
-from school.models import (Student,Professor,StudentProfessor)
+from school.models import (Student,Professor,StudentProfessor, Time, DayOfTheWeek, Schedule,ScheduleStudentProfessor )
 
 
 
@@ -37,3 +37,26 @@ class StudentSerializer(serializers.ModelSerializer):
                 StudentProfessor(student=student, professor=professor_instance, role=role).save()
         student.save()
         return student
+class TimeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Time
+        fields = ('__all__')
+
+class DayOfTheWeekSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = DayOfTheWeek
+        fields = ('__all__')
+class ScheduleSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Schedule
+        fields = ('__all__')
+
+class ScheduleStudentProfessorSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ScheduleStudentProfessor
+        fields = ('__all__')
+

@@ -1,8 +1,6 @@
 from django.conf.urls import url
 
-from .views import (
-    StudentList,StudentDestroy, StudentCreate,StudentGet,StudentUpdate,ProfessorCreate,ProfessorDestroy,ProfessorGet,ProfessorList,ProfessorUpdate
-)
+from .views import *
 
 urlpatterns = [
     url(r'students/$', StudentList.as_view()),
@@ -15,5 +13,9 @@ urlpatterns = [
     url(r'professors/add/$', ProfessorCreate.as_view()),
     url(r'professors/get/(?P<pk>\d+)/$', ProfessorGet.as_view()),
     url(r'professors/edit/(?P<pk>\d+)/$', ProfessorUpdate.as_view()),
+    url(r'schedulestudentsprofessors/$', ScheduleStudentProfessorList.as_view()),
+    url(r'schedules/$', ScheduleList.as_view()),
+    url(r'time/$', TimeList.as_view()),
+    url(r'dayoftheweek/$', DayOfTheWeekList.as_view()),
 
 ]
