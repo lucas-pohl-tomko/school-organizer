@@ -12,8 +12,6 @@ DAYS_OF_THE_WEEK = [
     ("SATURDAY", 'Saturday'),
 
 ]
-
-
 class DayOfTheWeek(models.Model):
     dayOfTheWeek = models.CharField(max_length=50, choices=DAYS_OF_THE_WEEK)
 

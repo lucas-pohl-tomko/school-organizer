@@ -14,8 +14,7 @@ from books.models import (Book, Genre, Author, BookAuthor)
 
 
 class BookSerializer(serializers.ModelSerializer):
-    # authors = BookAuthorSerializer(source='bookauthor_set', many=True)
-    
+    authors = serializers.StringRelatedField(many=True)
     class Meta:
         model = Book
         fields = (
