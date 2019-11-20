@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models.fields import DateTimeField
 
 from .professor import Professor
+from .schedule import Schedule
 
 ROLE_PROFESSOR = [
     (0, 'Guitarra/Violao'),
@@ -19,6 +20,11 @@ class Student(models.Model):
         'Professor',
         related_name='students',
         through='StudentProfessor'
+    )
+    schedules = models.ManyToManyField(
+        'Schedule',
+        related_name='students',
+        through='ScheduleStudentProfessor'
     )
     
     def __str__(self):

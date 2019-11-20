@@ -55,7 +55,7 @@ class ScheduleSerializer(serializers.ModelSerializer):
         fields = ('__all__')
 
 class ScheduleStudentProfessorSerializer(serializers.ModelSerializer):
-
+    # student = serializers.StringRelatedField(many=True)
     class Meta:
         model = ScheduleStudentProfessor
         fields = ('__all__')

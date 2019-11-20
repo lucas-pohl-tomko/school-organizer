@@ -1,7 +1,6 @@
 from django.db import models
 from django.db.models.fields import TimeField
 from .professor import Professor
-from .student import Student
 
 DAYS_OF_THE_WEEK = [
     ("MONDAY", 'Monday'),

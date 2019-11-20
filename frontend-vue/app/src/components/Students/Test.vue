@@ -1,7 +1,11 @@
 <template>
   <v-card>
+
     <v-card-title>
-      Horarios
+      <div v-for="x in schedules" v-bind:key="x.id">
+        id student: {{x.student}} id professor: {{x.professor}} id schedule: {{x.schedule}}
+      </div>
+      Horarios 
       <v-spacer></v-spacer>
       <v-text-field
         v-model="search"
@@ -14,25 +18,25 @@
     <v-data-table
       
       :headers="headers"
-      :items="schedule"
+      :items="table"
       :search="search"
     ></v-data-table>
   </v-card>
 </template>
+  
 
 
 
 <script>
 import axios from "axios";
 import router from "@/router/"
-import CreateStudent from "./Create";
 
 export default {
   name: "Test",
   data() {
     return {
-      students: [],
 
+      schedules: [],
       search: '',
         headers: [
           {
@@ -48,7 +52,7 @@ export default {
           { text: 'Sexta', value: 'friday' },
           { text: 'Sabado', value: 'saturday' },
         ],
-        schedule: [
+        table: [
           {
             name: '13:00',
             monday: "maria",
@@ -242,9 +246,6 @@ export default {
 
     };
   },
-  components: {
-    CreateStudents: CreateStudent,
-  },
   created() {
     this.all();
   },
@@ -254,30 +255,13 @@ export default {
         .request({
           baseURL: "http://localhost:8000",
           method: "get",
-          url: "/api/students/"
+          url: "/api/schedulestudentsprofessor/"
         })
         .then(response => {
-          this.students = response.data
+          this.schedules = response.data
           console.log(response)
         });
     },
-    deleteStudent(student) {
-      if (confirm("Excluir " + student.first_name)) {
-        axios
-          .delete(`http://localhost:8000/api/students/${student.id}`, {
-            headers: {
-              Authorization: `Token ${this.$session.get("token")}`
-            }
-          })
-          .then(response => {
-            this.all()
-            console.log(response)
-          });
-      }
-    },
-    editStudent(student) {
-      router.push(`/students/edit/${student.id}`)
-    }
   }
 };
 </script>

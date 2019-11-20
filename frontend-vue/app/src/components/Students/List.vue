@@ -12,6 +12,9 @@
         </v-btn>
         <v-divider></v-divider>
       </div>
+      <div v-for="x in horariosajustados" v-bind:key="x.id">
+        {{x.id}}
+      </div>
       <CreateStudents @updateStudents="all"></CreateStudents>
   </v-container>
 </template>
@@ -27,6 +30,7 @@ export default {
   data() {
     return {
       students: [],
+      horariosajustados: [],
     };
   },
   components: {
@@ -45,6 +49,16 @@ export default {
         })
         .then(response => {
           this.students = response.data
+          console.log(response)
+        });
+        axios
+        .request({
+          baseURL: "http://localhost:8000",
+          method: "get",
+          url: "/api/schedulestudentsprofessor/"
+        })
+        .then(response => {
+          this.horariosajustados = response.data
           console.log(response)
         });
     },
