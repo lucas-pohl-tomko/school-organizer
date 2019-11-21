@@ -11,6 +11,12 @@ DAYS_OF_THE_WEEK = [
     ("SATURDAY", 'Saturday'),
 
 ]
+ROLE_PROFESSOR = [
+    (0, 'Guitarra/Violao'),
+    (1, 'Violino'),
+    (2, 'Sopro'),
+    (3, 'Piano/Teclado')
+]
 class DayOfTheWeek(models.Model):
     dayOfTheWeek = models.CharField(max_length=50, choices=DAYS_OF_THE_WEEK)
 
@@ -33,7 +39,7 @@ class Schedule(models.Model):
         'Time',
         on_delete=models.CASCADE,
     )
-    def __str__(self):
+    def __str__(self):  
         return str((self.time, self.dayOfTheWeek))
     
 
@@ -50,6 +56,7 @@ class ScheduleStudentProfessor(models.Model):
         'Professor',
         on_delete=models.CASCADE,
     )
+    role = models.IntegerField(choices=ROLE_PROFESSOR)
     class Meta:
         db_table = ''
         managed = True
@@ -58,3 +65,11 @@ class ScheduleStudentProfessor(models.Model):
         
     def __str__(self):
         return str((self.student, self.professor, self.schedule))
+    
+    @property
+    def date(self):
+        return {
+            "time": str(self.schedule.time),
+            "dayOfTheWeek": str(self.schedule.dayOfTheWeek)
+        }
+    

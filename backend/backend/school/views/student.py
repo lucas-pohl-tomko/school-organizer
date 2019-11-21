@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
 from school.models import Student
-from school.serializers import StudentSerializer
+from school.serializers import StudentSerializer, StudentCreateSerializer
 
 
 class StudentList(generics.ListAPIView):
@@ -28,7 +28,7 @@ class StudentUpdate(generics.UpdateAPIView):
 
 class StudentCreate(generics.CreateAPIView):
     queryset = Student.objects.all()
-    serializer_class = StudentSerializer
+    serializer_class = StudentCreateSerializer
     permission_classes = ()
 
 

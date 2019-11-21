@@ -1,8 +1,7 @@
 from django.db import transaction
 
 from rest_framework import serializers
-from school.models import (Student,Professor,StudentProfessor, Time, DayOfTheWeek, Schedule,ScheduleStudentProfessor )
-
+from school.models import (Student,Professor,StudentProfessor, Time, DayOfTheWeek, Schedule,ScheduleStudentProfessor)
 
 
 class ProfessorSerializer(serializers.ModelSerializer):
@@ -34,7 +33,27 @@ class StudentSerializer(serializers.ModelSerializer):
                 professor_id = professor.get("professor")
                 role = professor.get("role")
                 professor_instance = Professor.objects.get(pk=professor_id)
-                StudentProfessor(student=student, professor=professor_instance, role=role).save()
+                ScheduleStudentProfessor(student=student, professor=professor_instance, role=role).save()
+        student.save()
+        return student
+
+class StudentCreateSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Student
+        fields = ('id', 'first_name', 'middle_name', 'last_name','professors')
+
+    @transaction.atomic
+    def create(self, validated_data):
+
+        student = Student.objects.create(**validated_data)
+        if "professors" in self.initial_data:
+            professors = self.initial_data.get("professors")
+            for professor in professors:
+                professor_id = professor.get("professor")
+                role = professor.get("role")
+                professor_instance = Professor.objects.get(pk=professor_id)
+                ScheduleStudentProfessor(student=student, professor=professor_instance, role=role).save()
         student.save()
         return student
 class TimeSerializer(serializers.ModelSerializer):
@@ -57,8 +76,10 @@ class ScheduleSerializer(serializers.ModelSerializer):
 class ScheduleStudentProfessorSerializer(serializers.ModelSerializer):
     student = serializers.StringRelatedField(many=False)
     professor = serializers.StringRelatedField(many=False)
-    schedule = serializers.StringRelatedField(many=False)
+    # schedule = serializers.StringRelatedField(many=False)
+    # time, day = schedule
+    # schedulee = {'time': time, 'day': day}
     class Meta:
         model = ScheduleStudentProfessor
-        fields = ('__all__')
+        fields = ('id','student','professor','date')
 
