@@ -21,11 +21,6 @@ class Student(models.Model):
         related_name='students',
         through='StudentProfessor'
     )
-    schedules = models.ManyToManyField(
-        'Schedule',
-        related_name='students',
-        through='ScheduleStudentProfessor'
-    )
     
     def __str__(self):
         return self.first_name + ' ' + self.middle_name + ' ' + self.last_name

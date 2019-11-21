@@ -2,8 +2,9 @@
   <v-container>
       <div v-for="student in students" v-bind:key="student.id">
         <p>Aluno: {{student.first_name}} {{student.middle_name}} {{student.last_name}}</p>
-        <p>Professor: {{student.professors}}</p>
-        
+          <div v-for="professor in student.professors" v-bind:key="professor.id">
+            <p>Professor: {{professor}}</p>
+          </div>
         <v-btn class="ma-2" text icon color="red lighten-2">
           <v-icon class="delete" @click="deleteStudent(student)"></v-icon>
         </v-btn>
@@ -11,9 +12,6 @@
           <v-icon class="edit" @click="editStudent(student)"></v-icon>
         </v-btn>
         <v-divider></v-divider>
-      </div>
-      <div v-for="x in horariosajustados" v-bind:key="x.id">
-        {{x.id}}
       </div>
       <CreateStudents @updateStudents="all"></CreateStudents>
   </v-container>
@@ -30,7 +28,6 @@ export default {
   data() {
     return {
       students: [],
-      horariosajustados: [],
     };
   },
   components: {
@@ -49,16 +46,6 @@ export default {
         })
         .then(response => {
           this.students = response.data
-          console.log(response)
-        });
-        axios
-        .request({
-          baseURL: "http://localhost:8000",
-          method: "get",
-          url: "/api/schedulestudentsprofessor/"
-        })
-        .then(response => {
-          this.horariosajustados = response.data
           console.log(response)
         });
     },

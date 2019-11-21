@@ -9,7 +9,7 @@ import EditBook from'@/components/Books/Edit'
 import Experiments from '@/components/Experiments'
 import ListStudents from '@/components/Students/List'
 import EditStudents from'@/components/Students/Edit'
-import Test from'@/components/Students/Test'
+import Schedule from'@/components/Students/ScheduleTable'
 
 Vue.use(Router)
 
@@ -58,9 +58,9 @@ export default new Router({
       component: EditStudents
     },
     {
-      path: '/students/test',
-      name: 'Test',
-      component: Test
+      path: '/students/scheduletable',
+      name: 'Schedule',
+      component: Schedule
     }
   ]
 })
