@@ -1,7 +1,7 @@
 from rest_framework import generics, permissions
 
 from school.models import ScheduleStudentProfessor, Time, DayOfTheWeek, Schedule
-from school.serializers import ScheduleStudentProfessorSerializer, ScheduleSerializer,TimeSerializer,DayOfTheWeekSerializer
+from school.serializers import ScheduleStudentProfessorSerializer, ScheduleSerializer,TimeSerializer,DayOfTheWeekSerializer, ScheduleStudentProfessorIdSerializer
 
 class DayOfTheWeekList(generics.ListAPIView):
     queryset = DayOfTheWeek.objects.all()
@@ -22,4 +22,9 @@ class ScheduleStudentProfessorList(generics.ListAPIView):
     queryset = ScheduleStudentProfessor.objects.all()
     serializer_class = ScheduleStudentProfessorSerializer
     permission_classes = ()
+class ScheduleStudentProfessorIdList(generics.ListAPIView):
+    queryset = ScheduleStudentProfessor.objects.all()
+    serializer_class = ScheduleStudentProfessorIdSerializer
+    permission_classes = ()
+
 

@@ -8,6 +8,6 @@ from .professor import (
 )
 
 from .schedule import (
-    ScheduleList,ScheduleStudentProfessorList,TimeList,DayOfTheWeekList
+    ScheduleList,ScheduleStudentProfessorList,TimeList,DayOfTheWeekList,ScheduleStudentProfessorIdList
 
 )

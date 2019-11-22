@@ -72,4 +72,7 @@ class ScheduleStudentProfessor(models.Model):
             "time": str(self.schedule.time),
             "dayOfTheWeek": str(self.schedule.dayOfTheWeek)
         }
+    @property
+    def studentid(self):
+        return str(self.student.id)
     

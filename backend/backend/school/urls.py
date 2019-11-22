@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'professors/get/(?P<pk>\d+)/$', ProfessorGet.as_view()),
     url(r'professors/edit/(?P<pk>\d+)/$', ProfessorUpdate.as_view()),
     url(r'schedulestudentsprofessor/$', ScheduleStudentProfessorList.as_view()),
+    url(r'schedulestudentsprofessorid/$', ScheduleStudentProfessorIdList.as_view()),
     url(r'schedules/$', ScheduleList.as_view()),
     url(r'time/$', TimeList.as_view()),
     url(r'dayoftheweek/$', DayOfTheWeekList.as_view()),

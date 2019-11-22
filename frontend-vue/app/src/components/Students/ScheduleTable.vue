@@ -10,17 +10,16 @@
           <th class="text-left">Aluno</th>
           <th class="text-left">Professor</th>
           <th class="text-left">Horario</th>
-          <th class="text-left"></th>
+          <th class="text-left">Dia</th>
         </tr>
       </thead>
       <tbody>
         <tr v-for="x in formattedSchedules" :key="x.id">
-          <td><a @click=goToStudent()>{{ x.student }}</a></td>
+          
+          <td><a @click=goToStudent(x.studentid)>{{ x.student }}</a></td>
           <td><a @click=goToProfessor()>{{ x.professor }}</a></td>
           <td>{{ x.date.time }}</td>
           <td>{{ x.date.dayOfTheWeek }}</td>
-          
-          
         </tr>
       </tbody>
   </v-simple-table>
@@ -72,10 +71,18 @@ export default {
         .then(response => {
           this.schedules = response.data
         });
-        
+      axios
+        .request({
+          baseURL: "http://localhost:8000",
+          method: "get",
+          url: "/api/schedulestudentsprofessorid/"
+        })
+        .then(response => {
+          this.schedulesids = response.data
+        });
       },
     goToStudent(student){
-      router.push(`/students`)
+      router.push(`/students/edit/${student}`)
     },
     goToProfessor(){
       router.push(`/students`)

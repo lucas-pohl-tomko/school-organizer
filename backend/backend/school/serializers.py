@@ -76,10 +76,13 @@ class ScheduleSerializer(serializers.ModelSerializer):
 class ScheduleStudentProfessorSerializer(serializers.ModelSerializer):
     student = serializers.StringRelatedField(many=False)
     professor = serializers.StringRelatedField(many=False)
-    # schedule = serializers.StringRelatedField(many=False)
-    # time, day = schedule
-    # schedulee = {'time': time, 'day': day}
+    class Meta:
+        model = ScheduleStudentProfessor
+        fields = ('id','student','professor','date','studentid')
+
+class ScheduleStudentProfessorIdSerializer(serializers.ModelSerializer):
+    # student = serializers.StringRelatedField(many=False)
+    # professor = serializers.StringRelatedField(many=False)
     class Meta:
         model = ScheduleStudentProfessor
         fields = ('id','student','professor','date')
-
