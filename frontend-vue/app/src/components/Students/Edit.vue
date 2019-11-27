@@ -30,8 +30,8 @@
         @blur="$v.student.last_name.$touch()"
       ></v-text-field>
 
-      <v-btn class="mr-4" @click="submit">Submit</v-btn>
-      <v-btn @click="clear">Clear</v-btn>
+      <v-btn class="mr-4" @click="submit">Editar</v-btn>
+      <v-btn @click="clear">Voltar</v-btn>
     </form>
   </v-container>
 </template>
@@ -86,7 +86,6 @@ export default {
       const errors = []
       if (!this.$v.student.middle_name.$dirty) return errors
       !this.$v.student.middle_name.maxLength && errors.push('Middle Name must be at most 100 characters long')
-      !this.$v.student.middle_name.required && errors.push('Middle Name is required.')
       return errors
     },
     last_nameErrors () {
@@ -127,7 +126,7 @@ export default {
         });
     },
     clear () {
-      route.push('/students/')
+      route.push('/schedules/')
     },
   }
 }

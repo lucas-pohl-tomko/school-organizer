@@ -1,3 +1,31 @@
+<template>
+  <v-simple-table fixed-header height="300px">
+     
+      <thead>
+        <v-card-title>
+        Horarios
+        <v-spacer></v-spacer>
+        </v-card-title>
+        <tr>
+          <th class="text-left">Aluno</th>
+          <th class="text-left">Professor</th>
+          <th class="text-left">Horario</th>
+          <th class="text-left">Dia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="x in formattedSchedules" :key="x.id">
+          
+          <td><a @click=goToStudent(x.studentid)>{{ x.student }}</a></td>
+          <td><a @click=goToProfessor()>{{ x.professor }}</a></td>
+          <td>{{ x.date.time }}</td>
+          <td>{{ x.date.dayOfTheWeek }}</td>
+        </tr>
+      </tbody>
+  </v-simple-table>
+</template>
+  
+
       //   headers: [
       //     {
       //       text: 'h̵̨̢̡̧̫̳̩̝̜͖̞̼̦̳͖̭̹͉̼̞̺̩̣̝̻̥̘̤̥̜̓͌̒̃̒͋͌̽͋̒̈̄͐̿͗̋͋̈́̍̓̕͝͠o̶̬̯̥̓͒̽̋͒̈́͠ͅr̵̡̪͇̞̯̙̼̪̞̜̮̦͉̳̈̒́̄́̔̆̃̍̏̕͘͝͝ͅͅa̵̡̨̡̻͔̤̲̲͉͓̥̦̼͖̦̖̮̱͕̗̟̭͕͕̦̘̦̙̭͉̮̼͔̣̥̞̠̎͗̚ŗ̵͍̪̦͓͉̟̝̮̳̩̭̑̀̈́̂̍̀̽̕i̷̢̖̖̻̼͔̘̭͚̤͚̮̭͕͔̯̠̼̰͖̝̮̿́͒o̸̡̡̡͖̫̗̬̜͓͍̺̤̬̱͙̘̯̱͇̺͕͔̫̟͈͈̯̦͈͔͕̗̖̒̎̉̀́̇̾͘͘͜͜ͅş̸̧̡̛̰͉̦̤̪̪̘̭̘̗̠̖̫͖̘̰̘̣̙̱̭̯͖̳̗̼̜̳̠̈́̅̆͛̓̌̈́̏̔͑̃́̾̉̄̀̿͋̊̉̏͑͘͘̚͜͝͝͝͝ͅ',

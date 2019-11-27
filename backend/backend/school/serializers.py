@@ -68,17 +68,24 @@ class DayOfTheWeekSerializer(serializers.ModelSerializer):
         model = DayOfTheWeek
         fields = ('__all__')
 class ScheduleSerializer(serializers.ModelSerializer):
-
+    time = serializers.StringRelatedField(many=False)
+    dayOfTheWeek = serializers.StringRelatedField(many=False)
     class Meta:
         model = Schedule
-        fields = ('__all__')
+        fields = ('id','time','dayOfTheWeek','timeandday')
 
 class ScheduleStudentProfessorSerializer(serializers.ModelSerializer):
     student = serializers.StringRelatedField(many=False)
     professor = serializers.StringRelatedField(many=False)
+    schedule = serializers.StringRelatedField(many=False)
     class Meta:
         model = ScheduleStudentProfessor
-        fields = ('id','student','professor','date','studentid')
+        fields = ('id','schedule','student','professor','date','role','studentid')
+
+class ScheduleStudentProfessorCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ScheduleStudentProfessor
+        fields = ('id','schedule','student','professor','date','role','studentid')
 
 class ScheduleStudentProfessorIdSerializer(serializers.ModelSerializer):
     # student = serializers.StringRelatedField(many=False)

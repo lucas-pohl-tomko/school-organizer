@@ -8,8 +8,10 @@ import ListBooks from '@/components/Books/List'
 import EditBook from'@/components/Books/Edit'
 import Experiments from '@/components/Experiments'
 import ListStudents from '@/components/Students/List'
-import EditStudents from'@/components/Students/Edit'
-import Schedule from'@/components/Students/ScheduleTable'
+import ListProfessors from '@/components/Professors/List'
+import EditProfessor from'@/components/Professors/Edit'
+import EditStudent from'@/components/Students/Edit'
+import Schedule from'@/components/Schedules/ScheduleTable'
 
 Vue.use(Router)
 
@@ -53,12 +55,22 @@ export default new Router({
       component: ListStudents
     },
     {
-      path: '/students/edit/:id',
-      name: 'EditStudents',
-      component: EditStudents
+      path: '/professors',
+      name: 'ListProfessors',
+      component: ListProfessors
     },
     {
-      path: '/students/scheduletable',
+      path: '/students/edit/:id',
+      name: 'EditStudent',
+      component: EditStudent
+    },
+    {
+      path: '/professors/edit/:id',
+      name: 'EditProfessor',
+      component: EditProfessor
+    },
+    {
+      path: '/schedules',
       name: 'Schedule',
       component: Schedule
     }

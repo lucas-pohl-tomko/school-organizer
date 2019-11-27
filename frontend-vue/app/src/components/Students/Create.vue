@@ -32,43 +32,6 @@
                 <v-text-field v-model="student.last_name" label="Last Name*" hint="Student's last name" required></v-text-field>
               </v-col>
             </v-row>           
-            <v-row class="form-group" v-for="(input,k) in studentprofessors" :key="k">
-                
-              <v-col cols="7">
-                <v-select
-                  :items = "professors"
-                  item-value = "id"
-                  item-text = "first_name"
-                  label = "Professors"
-                  attach
-                  single-line
-                  v-model = "input.professor"
-                >
-                </v-select>
-              </v-col>
-              <v-col cols="4">
-                <v-select
-                  :items = "roles"
-                  item-value = "id"
-                  item-text = "role"
-                  label = "Role"
-                  attach
-                  single-line
-                  v-model="input.role"
-                >
-                </v-select>
-              </v-col>
-              <v-col cols="1">
-                    <v-icon 
-                      @click="addprofessor(k)"
-                    >mdi-plus</v-icon>
-                    <v-icon 
-                      @click="removeprofessor(k)"
-                      v-show="k || ( !k && studentprofessors.length > 1)">
-                       mdi-minus
-                    </v-icon>
-              </v-col> 
-            </v-row>
           </v-container>
           <small>*Obrigatory information</small>
         </v-card-text>
@@ -89,46 +52,12 @@ export default {
     return {
       dialog: false,
       student: {},
-      professors: [],
-      studentprofessors: [{
-        professor: "",
-        role: 0
-      }],
-      roles: [
-        {id: 0, role: "Guitarra/Violao"},
-        {id: 1, role: "Violino"},
-        {id: 2, role: "Sopro"},
-        {id: 3, role: "Piano/Teclado"}
-      ]
     };
   },
   created() {
-    this.getProfessors()
   },
   methods: {
-    addprofessor(index) {
-      this.studentprofessors.push({ name: '', role: ''});
-    },
-    removeprofessor(index) {
-      this.studentprofessors.splice(index, 1);
-    },
-    getRoles() {
-
-    },
-    getProfessors() {
-      axios
-      .request({
-        baseURL: "http://localhost:8000",
-        method: "get",
-        url: "/api/professors/"
-      })
-      .then(response => {
-        this.professors = response.data
-        console.log(response)
-      });
-    },
     add() {
-      this.student.professors = this.studentprofessors
       axios
         .post("http://localhost:8000/api/students/add/",
           this.student, 

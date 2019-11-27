@@ -54,10 +54,10 @@ export default {
       user: {},
       items: [
         { title: "Home", icon: "mdi-home-city", endpoint: '/' },
-        { title: "My Account", icon: "mdi-account", endpoint: '/user' },
-        { title: "Users", icon: "mdi-account-group", endpoint: '/users' },
         // { title: "Books", icon: "mdi-library-books", endpoint: '/books'},
-        { title: "Students", icon: "mdi-library-books", endpoint: '/students/scheduletable'},
+        { title: "Horarios", icon: "mdi-library-books", endpoint: '/schedules'},
+        { title: "Estudantes", icon: "mdi-account-group", endpoint: '/students'},
+        { title: "Professores", icon: "mdi-account-group", endpoint: '/professors'},
         // { title: "Experiments", icon: "mdi-chart-pie", endpoint: '/experiments'}
       ],
       items_logged: [

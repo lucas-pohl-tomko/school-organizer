@@ -7,7 +7,4 @@ from .professor import (
 
 )
 
-from .schedule import (
-    ScheduleList,ScheduleStudentProfessorList,TimeList,DayOfTheWeekList,ScheduleStudentProfessorIdList
-
-)
+from .schedule import *

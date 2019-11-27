@@ -42,6 +42,9 @@ class Schedule(models.Model):
     def __str__(self):  
         return str((self.time, self.dayOfTheWeek))
     
+    @property
+    def timeandday(self):
+        return str((self.time,self.dayOfTheWeek))
 
 class ScheduleStudentProfessor(models.Model):
     schedule = models.ForeignKey(
@@ -75,4 +78,3 @@ class ScheduleStudentProfessor(models.Model):
     @property
     def studentid(self):
         return str(self.student.id)
-    
