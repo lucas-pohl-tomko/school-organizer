@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="indigo" dark>
+  <v-app-bar app :clipped-left="$vuetify.breakpoint.lgAndUp" color="deep-purple lighten-2" dark>
     <v-app-bar-nav-icon 
       @click.stop="$emit('toggle-drawer')"
     > </v-app-bar-nav-icon>    

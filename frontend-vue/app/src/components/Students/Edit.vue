@@ -126,7 +126,7 @@ export default {
         });
     },
     clear () {
-      route.push('/schedules/')
+      route.push('/')
     },
   }
 }

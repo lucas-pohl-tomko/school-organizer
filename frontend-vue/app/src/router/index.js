@@ -21,8 +21,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Index',
-      component: Index
+      name: 'Schedule',
+      component: Schedule
     },
     {
       path: '/login',
@@ -69,10 +69,10 @@ export default new Router({
       name: 'EditProfessor',
       component: EditProfessor
     },
-    {
-      path: '/schedules',
-      name: 'Schedule',
-      component: Schedule
-    }
+    // {
+    //   path: '/schedules',
+    //   name: 'Schedule',
+    //   component: Schedule
+    // }
   ]
 })

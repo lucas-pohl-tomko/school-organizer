@@ -1,19 +1,41 @@
 <template>
+
   <v-container>
-      <div v-for="student in students" v-bind:key="student.id">
-        <p>Aluno: {{student.first_name}} {{student.middle_name}} {{student.last_name}}</p>
+   <v-row no-gutters>
+      <v-col
+        v-for="student in students" 
+        v-bind:key="student.id"
+        cols="12"
+        sm="4"
+      >
+    <v-card
+      class="mx-auto"
+      max-width="344"
+      outlined
+    >
+      <v-list-item three-line>
+        <v-list-item-content>
+          <div class="overline mb-4">Estudante</div>
+          <v-list-item-title class="headline mb-1">{{student.first_name}} {{student.last_name}}</v-list-item-title>
+          <v-list-item-subtitle>Nome Completo: {{student.first_name}} {{student.middle_name}} {{student.last_name}}</v-list-item-subtitle>
           <div v-for="professor in student.professors" v-bind:key="professor.id">
-            <p>Professor: {{professor}}</p>
-          </div>
+            <v-list-item-subtitle>Professor: {{professor}}</v-list-item-subtitle>
+          </div>        
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-card-actions>
         <v-btn class="ma-2" text icon color="red lighten-2">
           <v-icon class="delete" @click="deleteStudent(student)"></v-icon>
         </v-btn>
         <v-btn class="ma-2" text icon color="green">
           <v-icon class="edit" @click="editStudent(student)"></v-icon>
         </v-btn>
-        <v-divider></v-divider>
-      </div>
-      <CreateStudents @updateStudents="all"></CreateStudents>
+      </v-card-actions>
+    </v-card>
+    </v-col>
+    </v-row>
+          <CreateStudents @updateStudents="all"></CreateStudents>
   </v-container>
 </template>
 
@@ -28,6 +50,7 @@ export default {
   data() {
     return {
       students: [],
+      authenticated: false
     };
   },
   components: {
@@ -35,6 +58,9 @@ export default {
   },
   created() {
     this.all();
+  },
+  mounted() {
+    this.checkAuthenticated();
   },
   methods: {
     all() {
@@ -48,6 +74,14 @@ export default {
           this.students = response.data
           console.log(response)
         });
+    },
+    checkAuthenticated() {
+      this.$session.start();
+      if (!this.$session.has("token")) {
+        router.push("/login");
+      } else {
+        this.authenticated = true;
+      }
     },
     deleteStudent(student) {
       if (confirm("Excluir " + student.first_name)) {

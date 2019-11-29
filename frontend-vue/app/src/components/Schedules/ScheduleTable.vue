@@ -86,8 +86,9 @@ export default {
         day: '',
         role: '',
       },
-
+      authenticated: false
     };
+    
   },
   components: {
     CreateStudents: CreateStudent,
@@ -112,6 +113,9 @@ export default {
       val || this.close()
     },
   },
+  mounted() {
+    this.checkAuthenticated();
+  },
   methods: {
     all() {
       axios
@@ -124,6 +128,14 @@ export default {
           this.schedules = response.data
         });
       },
+    checkAuthenticated() {
+      this.$session.start();
+      if (!this.$session.has("token")) {
+        router.push("/login");
+      } else {
+        this.authenticated = true;
+      }
+    },
 
 
     deleteItem(item) {

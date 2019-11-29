@@ -26,7 +26,7 @@ export default {
       } else {
         this.authenticated = true;
       }
-    }
+    },
   }
 };
 </script>

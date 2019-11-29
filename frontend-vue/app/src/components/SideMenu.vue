@@ -53,12 +53,9 @@ export default {
       mini: false,
       user: {},
       items: [
-        { title: "Home", icon: "mdi-home-city", endpoint: '/' },
-        // { title: "Books", icon: "mdi-library-books", endpoint: '/books'},
-        { title: "Horarios", icon: "mdi-library-books", endpoint: '/schedules'},
+        { title: "Horarios", icon: "mdi-library-books", endpoint: '/' },
         { title: "Estudantes", icon: "mdi-account-group", endpoint: '/students'},
         { title: "Professores", icon: "mdi-account-group", endpoint: '/professors'},
-        // { title: "Experiments", icon: "mdi-chart-pie", endpoint: '/experiments'}
       ],
       items_logged: [
         { title: "Logout", icon: "mdi-logout", endpoint: '/logout'}
@@ -71,7 +68,7 @@ export default {
   methods: {
     getUserDetails() {
       if (this.$session.has('token')){
-        this.user.name = null
+        this.user.name = "lucario";
       }
       else {
         this.user.name = 'None2'

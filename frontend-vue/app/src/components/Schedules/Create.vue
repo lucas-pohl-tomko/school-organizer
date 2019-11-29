@@ -74,6 +74,12 @@
                   single-line
                   v-model = "schedulestudentprofessors.schedule"
                 >
+                  <template v-slot:selection="data">
+                    {{ data.item.time }} {{dayOfTheWeek }}
+                  </template>
+                  <template v-slot:item="data">
+                    {{ data.item.time }} {{ data.item.dayOfTheWeek }}
+                  </template>
                 </v-select>
                 </v-col>
             </v-col>    
@@ -106,7 +112,7 @@ export default {
         {id: 1, role: "Violino"},
         {id: 2, role: "Sopro"},
         {id: 3, role: "Piano/Teclado"}
-      ]
+      ],
     };
   },
   created() {
